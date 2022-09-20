@@ -1,11 +1,12 @@
-FROM python:3.10-slim
+FROM python:3.7-slim
 
 WORKDIR /app
 
-COPY requirements.txt requirements.txt
+COPY requirements.txt /app/requirements.txt
 
-RUN pip3 install -r requirements.txt
+RUN pip install --upgrade --no-cache-dir pip \
+&&  pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+COPY . /app
 
-CMD ["python", "-m app run"]
+ENTRYPOINT ["python", "-m",  "app", "run"]
