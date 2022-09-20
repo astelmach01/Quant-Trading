@@ -1,7 +1,4 @@
-python-binance
-pandas
-numpy
 python-dotenv
 
 
-rich_click
+rich-click
