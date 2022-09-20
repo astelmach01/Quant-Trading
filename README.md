@@ -3,14 +3,12 @@
 
 ## Setup
 
-### Windows
-
 ```shell
-virtualenv myenv
-myenv\Scripts\activate
 pip install -r requirements.txt
 ```
 
+## Run
+
 ```shell
-pip install -r requirements.txt
+python -m app run
 ```
