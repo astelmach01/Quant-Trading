@@ -1,6 +1,7 @@
 import datetime
 
 import rich_click as click
+from app.strategies.pvsra import *
 
 
 @click.group('app')
@@ -16,7 +17,7 @@ def cli():
               type=click.DateTime(),
               help='the end time (exclusive')
 def run(start_date: datetime.datetime, end_date: datetime.datetime):
-
-    strat = Strategy()
-
-    strat.run()
+    pass
+    # strat = Strategy()
+    #
+    # strat.run()

@@ -16,6 +16,10 @@ attrs==22.1.0
     # via aiohttp
 backports-zoneinfo==0.2.1
     # via tzlocal
+backtesting==0.3.3
+    # via -r requirements.in
+bokeh==2.4.3
+    # via backtesting
 certifi==2022.9.14
     # via requests
 charset-normalizer==2.1.1
@@ -42,6 +46,10 @@ importlib-metadata==4.12.0
     # via
     #   click
     #   rich-click
+jinja2==3.1.2
+    # via bokeh
+markupsafe==2.1.1
+    # via jinja2
 multidict==6.0.2
     # via
     #   aiohttp
@@ -49,11 +57,21 @@ multidict==6.0.2
 numpy==1.21.6
     # via
     #   -r requirements.in
+    #   backtesting
+    #   bokeh
     #   pandas
+packaging==21.3
+    # via bokeh
 pandas==1.3.5
-    # via -r requirements.in
+    # via
+    #   -r requirements.in
+    #   backtesting
+pillow==9.2.0
+    # via bokeh
 pygments==2.13.0
     # via rich
+pyparsing==3.0.9
+    # via packaging
 python-binance==1.0.16
     # via -r requirements.in
 python-dateutil==2.8.2
@@ -68,6 +86,8 @@ pytz==2022.2.1
     #   pandas
 pytz-deprecation-shim==0.1.0.post0
     # via tzlocal
+pyyaml==6.0
+    # via bokeh
 regex==2022.3.2
     # via dateparser
 requests==2.28.1
@@ -80,10 +100,13 @@ six==1.16.0
     # via
     #   python-binance
     #   python-dateutil
+tornado==6.2
+    # via bokeh
 typing-extensions==4.3.0
     # via
     #   aiohttp
     #   async-timeout
+    #   bokeh
     #   importlib-metadata
     #   rich
     #   yarl

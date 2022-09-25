@@ -1,4 +1,6 @@
 python-binance
+mplfinance
+backtesting
 pandas
 numpy
 python-dotenv
