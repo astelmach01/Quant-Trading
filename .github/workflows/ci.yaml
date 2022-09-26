@@ -1,6 +1,6 @@
 name: Quant Trading
 
-on: [push]
+on: [ push ]
 
 jobs:
   CI:

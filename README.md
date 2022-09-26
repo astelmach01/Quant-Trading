@@ -1,6 +1,5 @@
 # Quant-Trading
 
-
 ## Setup
 
 ```shell
