@@ -17,11 +17,13 @@ class PVSRAStrategy:
         self.data = calculate_emas(self.data)
 
     def plot_data(self):
-        plot_PVSRA_candles(self.data,
-                           self.data[self.data['PVSRA'] == 'red'],
-                           self.data[self.data['PVSRA'] == 'blue'],
-                           self.data[self.data['PVSRA'] == 'green'],
-                           self.data[self.data['PVSRA'] == 'pink'])
+        plot_PVSRA_candles(
+            self.data,
+            self.data[self.data["PVSRA"] == "red"],
+            self.data[self.data["PVSRA"] == "blue"],
+            self.data[self.data["PVSRA"] == "green"],
+            self.data[self.data["PVSRA"] == "pink"],
+        )
 
 
 def calculate_average_vol(df):
@@ -63,20 +65,23 @@ def calculate_pvsra(df: pd.DataFrame):
     # calculated each category
     df["VA"] = np.select(condlist=condlist, choicelist=choicelist, default=0)
 
-    green = (df['isBull'] == 'yes') & (df['VA'] == 2)
-    blue = (df['isBull'] == 'yes') & (df['VA'] == 1)
+    green = (df["isBull"] == "yes") & (df["VA"] == 2)
+    blue = (df["isBull"] == "yes") & (df["VA"] == 1)
 
-    red = (df['isBull'] != 'yes') & (df['VA'] == 2)
-    pink = (df['isBull'] != 'yes') & (df['VA'] == 1)
+    red = (df["isBull"] != "yes") & (df["VA"] == 2)
+    pink = (df["isBull"] != "yes") & (df["VA"] == 1)
 
     condlist = [green, blue, red, pink]
     choicelist = [0, 1, 2, 3]
 
-    df['PVSRA'] = np.select(condlist, choicelist, default=-1)
-    df['PVSRA'] = df['PVSRA'].map({
-        -1: 'normal', 0: 'green', 1: 'blue', 2: 'red', 3: 'pink'
-    })
+    df["PVSRA"] = np.select(condlist, choicelist, default=-1)
+    df["PVSRA"] = df["PVSRA"].map(
+        {-1: "normal", 0: "green", 1: "blue", 2: "red", 3: "pink"}
+    )
 
-    df.drop(columns=['VA', 'Value2', 'HiValue2'], inplace=True)
+    df.drop(columns=["VA", "Value2", "HiValue2", 'Av', 'Volume > 2 * Average', 'Spread > '
+                                                                               'HiValue2',
+                     'isBull'],
+            inplace=True)
 
     return df

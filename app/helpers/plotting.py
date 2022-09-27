@@ -13,11 +13,11 @@ def create_candlestick_chart(dataframe: pd.DataFrame):
 
 
 def plot_PVSRA_candles(
-        df: pd.DataFrame,
-        df_red: pd.DataFrame,
-        df_blue: pd.DataFrame,
-        df_green: pd.DataFrame,
-        df_pink: pd.DataFrame,
+    df: pd.DataFrame,
+    df_red: pd.DataFrame,
+    df_blue: pd.DataFrame,
+    df_green: pd.DataFrame,
+    df_pink: pd.DataFrame,
 ):
     fig = go.Figure(create_candlestick_chart(df))
 

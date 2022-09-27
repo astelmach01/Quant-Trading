@@ -53,6 +53,9 @@ class BinanceDataLoader:
 
         end_time = int(round(self.end_time.timestamp() * 1000, 0))
         start_time = int(round(self.start_time.timestamp() * 1000, 0))
+
+        print('Getting data with params', {'start_time': self.start_time, 'end_time':
+            self.end_time})
         df = pd.DataFrame(
             self.client.get_historical_klines(
                 asset_name,
@@ -63,6 +66,8 @@ class BinanceDataLoader:
             ),
             columns=columns,
         )
+
+        print('Done getting data')
 
         raw_server_time = self.client.get_server_time()
         server_time = dt.datetime.fromtimestamp(raw_server_time["serverTime"] / 1000.0)
